@@ -1,7 +1,5 @@
 package TopInterview150.ArrayString;
 
-import java.util.Arrays;
-
 //28. Find the Index of the First Occurrence in a String
 public class FindIndexFirstOccurrenceString {
     public static int strStr(String haystack, String needle) {
