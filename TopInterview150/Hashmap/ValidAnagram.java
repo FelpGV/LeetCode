@@ -13,7 +13,7 @@ public class ValidAnagram {
             char sChar = s.charAt(i);
             char tChar = t.charAt(i);
             count.put(sChar, count.getOrDefault(sChar,0) + 1);
-            count.put(tChar, count.getOrDefault(tChar, 0) -1);
+            count.put(tChar, count.getOrDefault(tChar,0) - 1);
         }
 
         return count.values().stream().noneMatch(value -> value != 0);
