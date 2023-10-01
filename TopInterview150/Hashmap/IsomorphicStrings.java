@@ -9,6 +9,70 @@ public class IsomorphicStrings {
         if(s.length() != t.length()){
             return false;
         }
+        char[] sChar = s.toCharArray();
+        char[] tChar = t.toCharArray();
+        HashMap<Character,Character> st = new HashMap<>();
+        for (int i = 0; i < sChar.length; i++) {
+            if(!st.containsKey(sChar[i])){
+                if(!st.containsValue(tChar[i])){
+                    st.put(sChar[i],tChar[i]);
+                } else {
+                    return false;
+                }
+            } else {
+                if(tChar[i] != st.get(sChar[i])){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isIsomorphic3(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
+        }
+        HashMap<Character,Character> st = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char sChar = s.charAt(i);
+            char tChar = t.charAt(i);
+            if(!st.containsKey(sChar)){
+                if(!st.containsValue(tChar)){
+                    st.put(sChar,tChar);
+                } else {
+                    return false;
+                }
+            } else {
+                if(tChar != st.get(sChar)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isIsomorphic2(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
+        }
+        HashMap<Character,Character> st = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char sChar = s.charAt(i);
+            char tChar = t.charAt(i);
+            if(st.containsKey(sChar) && tChar != st.get(sChar)){
+                return false;
+            }
+            if(st.containsValue(tChar) && !st.containsKey(sChar)){
+                return false;
+            }
+            st.put(sChar,tChar);
+        }
+        return true;
+    }
+    public static boolean isIsomorphic1(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
+        }
         LinkedHashMap<Character, List<Integer>> sCount = new LinkedHashMap<>();
         LinkedHashMap<Character, List<Integer>> tCount = new LinkedHashMap<>();
         for (int i = 0; i < s.length(); i++) {
@@ -41,8 +105,8 @@ public class IsomorphicStrings {
     }
 
     public static void main(String[] args) {
-        String s = "egg";
-        String t = "add";
+        String s = "add";
+        String t = "egg";
         boolean result = isIsomorphic(s,t);
         System.out.println(result);
     }
