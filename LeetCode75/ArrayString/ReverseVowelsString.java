@@ -11,6 +11,25 @@ public class ReverseVowelsString {
     }
     public static String reverseVowels(String s) {
         StringBuilder vowels = new StringBuilder();
+        StringBuilder sReverse = new StringBuilder(s);
+        char[] sChar = s.toCharArray();
+        for (char c : sChar) {
+            if (isVowel(c)) {
+                vowels.append(c);
+            }
+        }
+        vowels.reverse();
+        int j = 0;
+        for (int i = 0; i < sChar.length; i++) {
+            if (isVowel(sChar[i])) {
+                sReverse.setCharAt(i, vowels.charAt(j));
+                j++;
+            }
+        }
+        return sReverse.toString();
+    }
+    public String reverseVowels2(String s) {
+        StringBuilder vowels = new StringBuilder();
         char[] sChar = s.toCharArray();
         for (char c : sChar) {
             if (isVowel(c)) {
