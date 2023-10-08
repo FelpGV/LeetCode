@@ -1,5 +1,5 @@
 package Problems_1_to_50;
-//9. Palindrome Number
+    //9. Palindrome Number
 public class PalindromeNumber {
 
     public static int inverse(int x, int r){
