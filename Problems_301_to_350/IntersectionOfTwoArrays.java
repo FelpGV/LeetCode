@@ -2,8 +2,6 @@ package Problems_301_to_350;
 //349. Intersection of Two Arrays
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class IntersectionOfTwoArrays {
     public static int[] intersection(int[] nums1, int[] nums2) {
