@@ -9,13 +9,12 @@ public class BackspaceStringCompare {
     public static String backspace(String s){
         List<Character> b = new ArrayList<>();
         for (char c : s.toCharArray()) {
-            b.add(c);
-        }
-        for (int i = 0; i < b.size(); i++) {
-            if(b.get(i) == '#'){
-                b.remove(i);
-                b.remove(i-1);
-                i = 0;
+            if (c == '#') {
+                if (!b.isEmpty()) {
+                    b.remove(b.size() - 1);
+                }
+            } else {
+                b.add(c);
             }
         }
         return b.toString();
@@ -27,8 +26,8 @@ public class BackspaceStringCompare {
     }
 
     public static void main(String[] args) {
-        String s = "ab##";
-        String t = "c#d#";
+        String s = "y#fo##f";
+        String t = "y#f#o##f";
         boolean result = backspaceCompare(s,t);
         System.out.println(result);
     }
